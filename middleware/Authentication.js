@@ -17,8 +17,7 @@ const AuthenticationMiddleware = (err, req, res, next) => {
     req.user = payload;
     next();
   } catch (error) {
-    console.log("OOPSIE", error);
-    console.log("MONGOOSE", err);
+    console.log(error)
   }
 };
 
