@@ -11,8 +11,10 @@ with added security using jwt and bcryptjs.
 
 ### Dependencies
 
-- check package.json for details
-- you might want your own mongodb database(preferably through mongodb atlas)
+- Git installed on your machine
+- Docker installed on your machine(optional)
+- A Mongo DB(atlas, local or container)
+- Check package.json for other dependencies
 
 ### Installing
 
@@ -25,15 +27,26 @@ npm install
 ```
 
 - rename **.env.sample** to **.env** and add your own environment variables corespondly:
-  - **MONGO_URI** = the uri for your mongodb database
-  - **JWT_SECRET_KEY** = your secret jwt key
+  - **JWT_SECRET_KEY** = the jwt secret key for authorization purposes
+  - **MONGO_USERNAME** = the mongo db username
+  - **MONGO_PASSWORD** = the mongo db password
+  - **MONGO_SERVER** = the mongo db server
+  - **PORT** = the port which your server listens on
+  - **MONGO_URI** = the connection string to your db(composed of other mongo db related env variables)
 
 ### Executing program
 
-- test the server locally using nodemon:
+- Test the server using nodemon
 
 ```
 npm test
+```
+
+- Test the server using docker-compose
+
+```
+docker build -t notes-api-nem .
+docker compose up
 ```
 
 ## **Authors**

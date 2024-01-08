@@ -48,12 +48,14 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  return res.status(200).json({ msg: "Home Route,Testing" });
+  return res.status(200).json({ msg: "Home Route" });
 });
 
 const startServer = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB(process.env.MONGO_URI).then(() => {
+      console.log("Connected to MongoDB!");
+    });
     app.listen(PORT, () => {
       console.log(`Server is up and running on port:${PORT}...`);
     });

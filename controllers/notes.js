@@ -6,7 +6,7 @@ const getAllNotes = async (req, res) => {
   const { userId } = req.params;
   const { limit, fields, page, title, sort } = req.query;
 
-  if (!userId) {
+  if (!userId || userId === "undefined") {
     return res
       .status(StatusCodes.NOT_FOUND)
       .json({ msg: "Please provide an user id.", notes: [] });
